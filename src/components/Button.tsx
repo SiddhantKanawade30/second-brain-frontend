@@ -19,17 +19,17 @@ const variantStyles = {
     "secondary" : "bg-violet-200 text-violet-700"
 }
 
-const defaultStyles = "flex rounded-md py-1 px-4 m-2"
+const defaultStyles = "flex rounded-md py-1 px-4 m-2 "
 
 const varientSize = {
-    "sm" : "p-2",
-    "md" : "p-4",
-    "lg" : "p-6"
+    "sm" : "p-2 text-sm",
+    "md" : "p-4 text-md",
+    "lg" : "p-6 text-lg"
 }
 
 
 export const Button = (props : ButtonProps) =>{
 
-    return <button className={`${variantStyles[props.variant]} ${defaultStyles} ${varientSize[props.size]}`}>{props.startIcon ? <div className="pr-2">{props.startIcon}</div> : null} {props.text}</button>
+    return <button className={`${variantStyles[props.variant]} ${defaultStyles} ${varientSize[props.size]}`}>{props.startIcon ? <div className="pr-1">{props.startIcon}</div> : null} {props.text} {props.endIcon ? <div className="pr-1">{props.endIcon}</div> : null}</button>
 
 }
