@@ -19,7 +19,7 @@ const variantStyles = {
     "secondary" : "bg-violet-200 text-violet-700"
 }
 
-const defaultStyles = "flex rounded-md py-1 px-4 m-2 "
+const defaultStyles = "flex rounded-md py-1 px-4 m-2 items-center cursor-pointer"
 
 const varientSize = {
     "sm" : "p-2 text-sm",
