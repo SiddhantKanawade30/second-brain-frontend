@@ -11,7 +11,7 @@ function App() {
     <>
       <Button startIcon={<PlusIcon size="md"/>} variant="primary" size="md" text="Add" onClick={()=>{}} />
       <Button startIcon={<Share size="md"/>} variant="secondary" size="lg" text="share" onClick={()=>{}} />
-     <Card />
+     <Card link='https://x.com/HeyToha/status/1937203255798628574'/>
 
       
     </>
