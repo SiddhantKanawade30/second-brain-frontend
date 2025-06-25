@@ -1,13 +1,15 @@
 import { Input } from "../components/Input";
 import { Button } from "../components/Button";
 import { useRef } from "react";
+import "dotenv/config"
 
 export const Signup = () => {
-    const usernameRef = useRef()
-    const passwordRef = useRef()
+    const usernameRef = useRef<HTMLInputElement>()
+    const passwordRef = useRef<HTMLInputElement>()
     function signup(){
         const username = usernameRef.current?.value; 
         const password = passwordRef.current?.value;
+        axios.post(`${process.env.BACKEND_URL}`)
     }
 
     return (
