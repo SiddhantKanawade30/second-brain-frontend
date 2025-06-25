@@ -6,10 +6,12 @@ import { Share } from "../icons/Share"
 import { Create } from "../components/Create"
 import { useState } from 'react'
 import { SideBar } from '../components/SideBar'
+import { useContent } from '../hooks/useContent'
 
 function Dashboard() {
 
   const [modalOpen, setModalOpen] = useState(false);
+const content = useContent();   
 
   return (
     <>
@@ -33,12 +35,11 @@ function Dashboard() {
           />
         </div>
         <div className='flex flex-wrap gap-6 m-2 justify-start'>
-            <div>
-                <Card link={'https://x.com/JDVance/status/1937471780660154738'} title={"Interesting Tweet"} type='twitter' />
-            </div>
-            <div>
-          <Card link={'https://www.youtube.com/watch?v=tysDxjfgLMg'} title={"YouTube Video"} type='youtube' />
-            </div>
+            {
+                content.map(({type , link , title})=> <div>
+                    <Card type={type} link={link} title={title} />
+                </div>)
+            }
           
         </div>
       </div>
