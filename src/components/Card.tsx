@@ -14,7 +14,7 @@ interface CardProps {
 
 export function Card({ title, link, type }: CardProps) {
   return (
-    <div className="w-[320px] border p-4 bg-gray-200 rounded flex flex-col gap-2">
+    <div className="w-[320px] border p-4 bg-white rounded flex flex-col gap-2">
       {/* Header */}
       <div className="flex items-center justify-between mb-2">
         <div className="flex gap-2 items-center">
