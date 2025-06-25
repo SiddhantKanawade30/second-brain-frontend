@@ -18,7 +18,7 @@ export function Card({ title, link, type }: CardProps) {
       <div className="flex items-center justify-between mb-2">
         <div className="flex gap-2 items-center">
           <span className="text-black w-8 h-8 flex items-center">
-            {type === "twitter"? <Twitter size="lg" /> : <Youtube size="lg" />}
+            {type === "twitter"? <Twitter size="md" /> : <Youtube size="lg" />}
           </span>
           <span className="text-black font-semibold">{title}</span>
         </div>
