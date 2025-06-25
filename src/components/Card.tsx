@@ -1,6 +1,10 @@
 import { Share } from "../icons/Share";
 import { Delete } from "../icons/delete";
-import { Doc } from "../icons/Doc";
+import { Twitter } from "../icons/Twitter";
+// import { Doc } from "../icons/Doc";
+import { Youtube } from "../icons/Youtube";
+
+
 
 interface CardProps {
   title: String;
@@ -10,12 +14,12 @@ interface CardProps {
 
 export function Card({ title, link, type }: CardProps) {
   return (
-    <div className="w-[300px] h-[350px] border p-4 bg-gray-200 rounded flex flex-col justify-between">
+    <div className="w-[320px] border p-4 bg-gray-200 rounded flex flex-col gap-2">
       {/* Header */}
       <div className="flex items-center justify-between mb-2">
         <div className="flex gap-2 items-center">
           <span className="text-black w-8 h-8 inline-block">
-            <Doc size="lg" />
+            {type === "twitter"? <Twitter size="lg" /> : <Youtube size="lg" />}
           </span>
           <span className="text-black font-semibold">{title}</span>
         </div>
@@ -31,11 +35,11 @@ export function Card({ title, link, type }: CardProps) {
         </div>
       </div>
       {/* Embedded Content */}
-      <div className="flex-1 flex items-center justify-center">
+      <div>
         {type === "youtube" && (
           <iframe
-            className="w-full h-40 rounded"
-            src={link.replace("watch","embed")}
+            className="w-full rounded h-40" // You can use h-32, h-40, h-56, etc. for different video heights
+            src={link.replace("watch?v=", "embed/")}
             title="YouTube video player"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -44,8 +48,8 @@ export function Card({ title, link, type }: CardProps) {
           ></iframe>
         )}
         {type === "twitter" && (
-          <blockquote className="twitter-tweet ">
-            <a href={link.replace("x.com","twitter.com")}></a>
+          <blockquote className="twitter-tweet w-full">
+            <a href={link.replace("x.com", "twitter.com")}></a>
           </blockquote>
         )}
       </div>
