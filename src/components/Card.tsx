@@ -1,10 +1,7 @@
 import { Share } from "../icons/Share";
 import { Delete } from "../icons/delete";
 import { Twitter } from "../icons/Twitter";
-// import { Doc } from "../icons/Doc";
 import { Youtube } from "../icons/Youtube";
-
-
 
 interface CardProps {
   title: String;
@@ -14,21 +11,29 @@ interface CardProps {
 
 export function Card({ title, link, type }: CardProps) {
   return (
-    <div className="w-[320px] border p-4 bg-white rounded flex flex-col gap-2">
-      <div className="flex items-center justify-between mb-2">
-        <div className="flex gap-2 items-center">
-          <span className="text-black w-8 h-8 flex items-center">
-            {type === "twitter"? <Twitter size="md" /> : <Youtube size="lg" />}
+    <div className="w-[340px] border border-gray-200 p-5 bg-white rounded-xl shadow-lg flex flex-col gap-4 transition-transform hover:scale-[1.025] hover:shadow-2xl duration-200">
+      {/* Header */}
+      <div className="flex items-center justify-between">
+        <div className="flex gap-3 items-center">
+          <span className="text-blue-500 w-9 h-9 flex items-center justify-center bg-blue-50 rounded-full shadow-sm">
+            {type === "twitter" ? <Twitter size="md" /> : <Youtube size="lg" />}
           </span>
-          <span className="text-black font-semibold">{title}</span>
+          <span className="text-gray-800 font-semibold text-lg truncate max-w-[180px]">
+            {title}
+          </span>
         </div>
         <div className="flex gap-2">
-          <span className="text-black w-8 h-8 inline-block">
-            <a href={link} target="_blank" className="cursor-pointer">
+          <span className="text-gray-500 w-8 h-8 flex items-center justify-center rounded hover:bg-gray-100 transition">
+            <a
+              href={link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="cursor-pointer"
+            >
               <Share size="lg" />
             </a>
           </span>
-          <span className="text-black w-8 h-8 inline-block">
+          <span className="text-gray-500 w-8 h-8 flex items-center justify-center rounded hover:bg-red-50 hover:text-red-500 transition cursor-pointer">
             <Delete size="lg" />
           </span>
         </div>
@@ -37,7 +42,8 @@ export function Card({ title, link, type }: CardProps) {
       <div>
         {type === "youtube" && (
           <iframe
-            className="w-full rounded h-40" // You can use h-32, h-40, h-56, etc. for different video heights
+            className="w-full rounded-lg border border-gray-100"
+            style={{ minHeight: 160, maxHeight: 240 }}
             src={link.replace("watch?v=", "embed/")}
             title="YouTube video player"
             frameBorder="0"

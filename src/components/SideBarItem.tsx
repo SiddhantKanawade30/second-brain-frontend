@@ -1,16 +1,12 @@
-
-
-
-export const SideBarItem = ({title,icon}) => { 
-
-    return <div className="flex gap-1 items-center ml-5 pl-15 hover:bg-gray-300 transition-colors rounded">
-     <div className="p-1  text-gray-700 cursor-pointer">
+export const SideBarItem = ({ title, icon }) => {
+  return (
+    <div className="flex gap-3 items-center ml-4 px-4 py-2 my-1 hover:bg-blue-100 hover:text-blue-700 transition-colors rounded-lg cursor-pointer group">
+      <div className="p-2 text-gray-600 group-hover:text-blue-700 transition-colors text-xl">
         {icon}
+      </div>
+      <div className="text-base font-medium text-gray-700 group-hover:text-blue-700 transition-colors">
+        {title}
+      </div>
     </div>
-     <div className="text-lg p-1 text-gray-700 cursor-pointer  ">
-         {title}
-    </div>   
-
-    </div>
-
- }
+  );
+}
