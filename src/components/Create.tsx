@@ -29,6 +29,7 @@ export const Create = ({ open, onClose }) => {
         "token": localStorage.getItem("token")
       }
     });
+    onClose()
   }
 
   return (

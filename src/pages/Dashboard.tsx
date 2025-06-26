@@ -4,14 +4,31 @@ import { Card } from '../components/Card'
 import { PlusIcon } from '../icons/Plus'
 import { Share } from "../icons/Share"
 import { Create } from "../components/Create"
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { SideBar } from '../components/SideBar'
-import { useContent } from '../hooks/useContent'
+import { useContent   } from '../hooks/useContent'
+
+
+
 
 function Dashboard() {
-
   const [modalOpen, setModalOpen] = useState(false);
-const content = useContent();   
+  const { content , refresh } = useContent();
+
+  useEffect(() => {
+    refresh()
+  }, [modalOpen]);
+
+
+  useEffect(() => {
+    //@ts-ignore
+    if (window.twttr && window.twttr.widgets) {
+        //@ts-ignore
+      window.twttr.widgets.load();
+    }
+  }, [content]);
+
+
 
   return (
     <>
@@ -35,16 +52,15 @@ const content = useContent();
           />
         </div>
         <div className='flex flex-wrap gap-6 m-2 justify-start'>
-            {
-                content.map(({type , link , title})=> <div>
-                    <Card type={type} link={link} title={title} />
-                </div>)
-            }
-          
+          {content.map(({ type, link, title }, idx) => (
+            <div key={idx}>
+              <Card type={type} link={link} title={title} />
+            </div>
+          ))}
         </div>
       </div>
     </>
-  )
+  );
 }
 
-export default Dashboard
+export default Dashboard;
