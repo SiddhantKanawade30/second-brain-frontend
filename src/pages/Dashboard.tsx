@@ -11,8 +11,6 @@ import { BACKEND_URL , FRONTEND_URL} from '../config'
 import axios from 'axios'
 
 
-
-
 function Dashboard() {
   const [modalOpen, setModalOpen] = useState(false);
   const { content , refresh } = useContent();
