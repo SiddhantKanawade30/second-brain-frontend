@@ -7,6 +7,8 @@ import { Create } from "../components/Create"
 import { useEffect, useState } from 'react'
 import { SideBar } from '../components/SideBar'
 import { useContent   } from '../hooks/useContent'
+import { BACKEND_URL , FRONTEND_URL} from '../config'
+import axios from 'axios'
 
 
 
@@ -28,7 +30,17 @@ function Dashboard() {
     }
   }, [content]);
 
-
+async function shareBrain(){
+    const response = await axios.post(`${BACKEND_URL}/api/v1/brain/share`, {
+        share : true
+    },{
+        headers: {
+            "token": localStorage.getItem("token")
+        }   
+    })
+    const shareUrl = `${FRONTEND_URL}${response.data.hash}`;
+    alert(`Share your brain with this link: ${shareUrl}`);
+}
 
   return (
     <>
@@ -48,7 +60,7 @@ function Dashboard() {
             variant="secondary"
             size="lg"
             text="Share"
-            onClick={() => { }}
+            onClick={() => {shareBrain()}}
           />
         </div>
         <div className='flex flex-wrap gap-6 m-2 justify-start'>
