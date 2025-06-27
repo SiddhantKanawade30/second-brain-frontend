@@ -10,6 +10,14 @@ interface CardProps {
 }
 
 export function Card({ title, link, type }: CardProps) {
+
+
+async function deleteItem(id: string) {
+  
+ }
+
+
+
   return (
     <div className="w-[340px] border border-gray-200 p-5 bg-white rounded-xl shadow-lg flex flex-col gap-4 transition-transform hover:scale-[1.025] hover:shadow-2xl duration-200">
       {/* Header */}
@@ -34,7 +42,7 @@ export function Card({ title, link, type }: CardProps) {
             </a>
           </span>
           <span className="text-gray-500 w-8 h-8 flex items-center justify-center rounded hover:bg-red-50 hover:text-red-500 transition cursor-pointer">
-            <Delete size="lg" />
+            <Delete size="lg" onClick={() => {}} />
           </span>
         </div>
       </div>

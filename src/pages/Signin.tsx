@@ -1,6 +1,6 @@
 import { Input } from "../components/Input";
 import { Button } from "../components/Button";
-import { use, useRef } from "react";
+import { useRef } from "react";
 import axios from "axios";
 import { BACKEND_URL } from "../config";
 import { useNavigate } from "react-router-dom";
@@ -41,9 +41,10 @@ const usernameRef = useRef<HTMLInputElement>(null)
                     <Button variant="primary" size="md" text="Sign In" onClick={() => {signin()}} />
                 </div>
                 <div className="text-center text-sm text-gray-500 mt-2">
-                    Don't have an account? <a href="/signup" className="text-blue-600 hover:underline">Sign Up</a>
+                    Don't have an account? <a href="/" className="text-blue-600 hover:underline">Sign Up</a>
                 </div>
             </div>
         </div>
     );
 }
+
