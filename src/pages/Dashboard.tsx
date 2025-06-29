@@ -115,7 +115,7 @@ function Dashboard() {
         <div className="max-w-6xl mx-auto px-6 pb-12">
           <Create open={modalOpen} onClose={() => setModalOpen(false)} />
           
-          {/* Content Count */}
+        
           <div className="mb-6">
             <p className="text-gray-600">
               {filteredContent.length} items

@@ -13,7 +13,7 @@ export function Card({ title, link, type }: CardProps) {
 
 
 async function deleteItem(id: string) {
-  
+
  }
 
 
