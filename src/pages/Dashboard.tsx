@@ -41,7 +41,7 @@ function Dashboard() {
       })
       const shareUrl = `${FRONTEND_URL}${response.data.hash}`;
       
-      // Copy to clipboard or show alert
+      
       if (navigator.clipboard) {
         await navigator.clipboard.writeText(shareUrl);
         alert('Share link copied to clipboard!');
@@ -54,7 +54,7 @@ function Dashboard() {
     setIsSharing(false);
   }
 
-  // Filter content based on search (simplified and safe)
+ 
   const filteredContent = platform === "all"
     ? content.filter(item => {
       if (!item || !item.title) return false;
@@ -67,18 +67,18 @@ function Dashboard() {
       <SideBar setPlatform={setPlatform} platform={platform} />
       <div className="ml-72 min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
         
-        {/* Header Section */}
+        
         <div className="max-w-6xl mx-auto pt-8 pb-6 px-6">
           <div className="text-center mb-8">
             <h1 className="text-4xl font-bold text-blue-700 mb-2">Your Knowledge Hub</h1>
             <p className="text-gray-600">Organize and share your digital knowledge</p>
           </div>
           
-          {/* Controls */}
+          
           <div className="bg-white rounded-lg p-6 shadow-sm mb-8">
             <div className="flex flex-col md:flex-row gap-4 justify-between items-center">
               
-              {/* Search Bar */}
+              
               <div className="flex-1 max-w-md">
                 <input
                   type="text"
@@ -89,7 +89,7 @@ function Dashboard() {
                 />
               </div>
               
-              {/* Buttons */}
+             
               <div className="flex gap-3">
                 <Button
                   startIcon={<PlusIcon size="md" />}
@@ -111,7 +111,7 @@ function Dashboard() {
           </div>
         </div>
 
-        {/* Content Section */}
+       
         <div className="max-w-6xl mx-auto px-6 pb-12">
           <Create open={modalOpen} onClose={() => setModalOpen(false)} />
           
@@ -131,7 +131,7 @@ function Dashboard() {
             )}
           </div>
 
-          {/* Content Grid */}
+         
           {filteredContent.length === 0 ? (
             <div className="text-center py-20">
               {searchTerm ? (
