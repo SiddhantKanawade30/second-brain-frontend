@@ -41,14 +41,14 @@ export const Create = ({ open, onClose }) => {
         />
       )}
 
-      {/* Modal */}
+      
       {open && (
         <div className="fixed inset-0 flex items-center justify-center z-50 p-4">
           <div
             className="bg-white/80 backdrop-blur-lg border border-slate-200/60 rounded-2xl shadow-2xl w-full max-w-md transition-all duration-300 scale-100 animate-in fade-in slide-in-from-bottom-6"
             style={{ animationDuration: "300ms" }}
           >
-            {/* Header */}
+           
             <div className="flex items-center justify-between px-6 pt-6 pb-4">
               <h2 className="text-2xl font-bold text-slate-800 tracking-wide">
                 Create New Item
@@ -64,7 +64,7 @@ export const Create = ({ open, onClose }) => {
               </button>
             </div>
 
-            {/* Content */}
+           
             <div className="px-6 pb-6 space-y-5">
               <Input
                 placeholder="Enter title"
@@ -79,7 +79,7 @@ export const Create = ({ open, onClose }) => {
                 ref={linkRef}
               />
 
-              {/* Type selector */}
+            
               <div className="flex gap-3 items-center pt-1">
                 <h3 className="text-sm font-medium text-slate-700">Type:</h3>
                 <Button
@@ -96,7 +96,7 @@ export const Create = ({ open, onClose }) => {
                 />
               </div>
 
-              {/* Action Buttons */}
+             
               <div className="flex gap-3 pt-4">
                 <Button
                   variant="secondary"
@@ -121,7 +121,7 @@ export const Create = ({ open, onClose }) => {
   );
 };
 
-// Styled Input
+
 const Input = forwardRef<HTMLInputElement, {
   onChange: () => void;
   placeholder: string;
